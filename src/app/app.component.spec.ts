@@ -1,15 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DataService } from './data.service';
-import { HttpModule}  from '@angular/http'
+import { FormsModule } from '@angular/forms';
+import { SampleComponent } from './sample/sample.component';
+import{ HttpClientModule } from '@angular/common/http';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        SampleComponent
       ],
       imports: [
-        HttpModule
+        HttpClientModule,
+        FormsModule
       ],
       providers: [
         DataService

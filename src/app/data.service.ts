@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import{ HttpClient } from '@angular/common/http';
 import 'rxjs/Rx';
 import  'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable'
 
 @Injectable()
 export class DataService {
 
-  constructor(private http:Http) { }
+  constructor(private http:HttpClient) { }
 
 
-  getUsers(){
+  getUsers(): Observable<any>{
     return this.http.get('https://jsonplaceholder.typicode.com/users')
-          .map((response: Response) =>  {
-            console.log('...',response) ;
-            return response.json();
-          }
-        )
+    .map((res)=>{
+      console.log('res in service');
+        return res;
+    })
   }
 
 }
